@@ -64,7 +64,9 @@ video:focus {
           "height" : "auto",
           "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
           sources : [
-          <?php echo file_get_contents('videolist.txt');?>
+          { src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'SHK', res: 'SHK'},
+      { src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'HK', res: 'HK'},
+      { src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'HD', res: 'HD'}
           ],
         });
         videojs('pokoplayer').videoJsResolutionSwitcher();
