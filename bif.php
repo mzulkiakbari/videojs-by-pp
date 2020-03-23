@@ -62,7 +62,7 @@ video:focus {
           "preload" : "metadata",
           "width" : "100%",
           "height" : "auto",
-          "poster" : "../../file/m3u8/thumbnails1.jpg",
+          "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
           sources : [
           <?php echo file_get_contents('videolist.txt');?>
           ],
@@ -71,7 +71,7 @@ video:focus {
         PkPlayer.frames({
             clippingEnabled: false,
             framerate: 23.98,
-            bif: '../../file/m3u8/BIF.bif'
+            bif: 'BIF.bif'
         });
 
     </script>
