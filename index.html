@@ -48,6 +48,29 @@ video:focus {
   outline:none;
   box-shadow: none;
 }
+    
+    .video-js .vjs-duration,
+.vjs-no-flex .vjs-duration {
+  display: block;
+}
+
+.video-js .vjs-current-time,
+.vjs-no-flex .vjs-current-time {
+  display: block;
+}
+
+.video-js .vjs-remaining-time,
+.vjs-no-flex .vjs-current-time {
+  display: none;
+}
+
+.vjs-live .vjs-time-control {
+  display: block;
+}
+
+.vjs-time-divider {
+  display: block;
+}
   </style>
 <body>
                 <video id="pokoplayer" class="video-js pkplayer"></video>
@@ -70,12 +93,6 @@ video:focus {
           ],
         });
         videojs('pokoplayer').videoJsResolutionSwitcher();
-        PkPlayer.frames({
-            clippingEnabled: false,
-            framerate: 23.98,
-            bif: 'BIF.bif'
-        });
-
     </script>
 
 </body>
