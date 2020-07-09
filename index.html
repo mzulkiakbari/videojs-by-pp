@@ -81,22 +81,20 @@ video:focus {
                 <script src="videojs/plugin/frame/videojs-frame.js"></script>
 
     <script>
-        var PkPlayer = videojs('pokoplayer',{
+        videojs('pokoplayer',{
           "controls" : true,
           "autoplay" : true,
           "preload" : "metadata",
           "width" : "100%",
           "height" : "auto",
-          "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+          "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
+	   plugins: {
+        	videoJsResolutionSwitcher: {
+          	default: 'HD',
+          	dynamicLabel: true
+        }
+      }
         }, function(){
-
-	});
-        videojs('pokoplayer').videoJsResolutionSwitcher();
-	videojs('pokoplayer').mobileUi();
-    </script>
-	<script>
-	var player = videojs('pokoplayer');
-	window.player = player;
 	player.updateSrc([
 	{
         	src: 'http://serv.pokonime.xyz/files/G_1Y4_/SFo4Ri5',
@@ -117,7 +115,10 @@ video:focus {
         	res: 'HD'
       	}
 	])
-	</script>
+	});
+        
+	videojs('pokoplayer').mobileUi();
+    </script>
 
 </body>
 </html>
