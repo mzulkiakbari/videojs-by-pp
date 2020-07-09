@@ -76,7 +76,7 @@ video:focus {
 <body>
                 <video id="pokoplayer" class="video-js pkplayer"></video>
                 <script src="//vjs.zencdn.net/7.7.4/video.min.js"></script>
-                <script src="videojs-resolution-switcher.js"></script>
+                <script src="https://raw.githubusercontent.com/bariartz/videojs-resolution-switcher-for-videojs-version-7/master/videojs-resolution-switcher-2.js"></script>
                 <script src="videojs-mobile-ui.min.js"></script>
                 <script src="videojs/plugin/frame/videojs-frame.js"></script>
 
@@ -89,16 +89,10 @@ video:focus {
           "height" : "auto",
           "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
           sources : [
-          	{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : '360p', res: '360p'},
-      		{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : '480p', res: '480p'},
-      		{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'HD', res: '720p'}
+          	{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'HD', res: 'HD'},
+      		{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : 'FHD', res: 'FHD'},
+      		{ src : 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', type : 'video/mp4', label : '4K', res: '4K'}
           ],
-	  plugins: {
-		videoJsResolutionSwitcher: {
-		default: 'HD',
-		dynamicLabel: true
-		}
-	  }
         });
         videojs('pokoplayer').videoJsResolutionSwitcher();
 	videojs('pokoplayer').mobileUi();
