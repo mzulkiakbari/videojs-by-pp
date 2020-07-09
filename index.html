@@ -88,32 +88,36 @@ video:focus {
           "width" : "100%",
           "height" : "auto",
           "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-        });
+        }, function(){
+
+	});
         videojs('pokoplayer').videoJsResolutionSwitcher();
 	videojs('pokoplayer').mobileUi();
-	    
-	    var player = videojs('pokoplayer');
-			window.player = player;
-			player.updateSrc([
-				{
-        src: 'http://serv.pokonime.xyz/files/G_1Y4_/SFo4Ri5',
-        type: 'video/mp4',
-        label: 'HD',
-        res: 'HD'
-      },
-      {
-        src: 'http://serv.pokonime.xyz/files/G_1Y4_/p1hyrcak',
-        type: 'video/mp4',
-        label: 'HK',
-        res: 'HK'
-      },
-      {
-        src: 'http://serv.pokonime.xyz/files/G_1Y4_/QlIfG3YJzWw',
-        type: 'video/mp4',
-        label: 'SHK',
-        res: 'SHK'
-      }				])
     </script>
+	<script>
+	var player = videojs('pokoplayer');
+	window.player = player;
+	player.updateSrc([
+	{
+        	src: 'http://serv.pokonime.xyz/files/G_1Y4_/SFo4Ri5',
+        	type: 'video/mp4',
+        	label: '4K',
+        	res: '4K'
+	},
+	{
+        	src: 'http://serv.pokonime.xyz/files/G_1Y4_/p1hyrcak',
+        	type: 'video/mp4',
+        	label: 'FHD',
+        	res: 'FHD'
+	},
+      	{
+        	src: 'http://serv.pokonime.xyz/files/G_1Y4_/QlIfG3YJzWw',
+        	type: 'video/mp4',
+        	label: 'HD',
+        	res: 'HD'
+      	}
+	])
+	</script>
 
 </body>
 </html>
