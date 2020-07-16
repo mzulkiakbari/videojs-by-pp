@@ -102,7 +102,7 @@
                     this.el().appendChild(label)
                 } else {
                     var staticLabel = document.createElement('span');
-                    videojs.addClass(staticLabel, 'vjs-resolution-button-staticlabel');
+                    videojs.dom.addClass(staticLabel, 'vjs-resolution-button-staticlabel');
                     this.el().appendChild(staticLabel)
                 }
             },
@@ -134,8 +134,8 @@
                 player = this,
                 label = document.createElement('span'),
                 groupedSrc = {};
-            videojs.addClass(label, 'vjs-resolution-button-label');
-            videojs.addClass(label, 'vjs-resolution-type');
+            videojs.dom.addClass(label, 'vjs-resolution-button-label');
+            videojs.dom.addClass(label, 'vjs-resolution-type');
             settings.dynamicLabel = !0;
             player.updateSrc = function (src) {
                 if (!src) {
@@ -154,7 +154,7 @@
                     initialySelectedRes: choosen.res,
                     customSourcePicker: settings.customSourcePicker
                 }, settings, label);
-                videojs.addClass(menuButton.el(), 'vjs-resolution-button');
+                videojs.dom.addClass(menuButton.el(), 'vjs-resolution-button');
                 player.controlBar.resolutionSwitcher = player.controlBar.el_.insertBefore(menuButton.el_, player.controlBar.getChild('fullscreenToggle').el_);
                 player.controlBar.resolutionSwitcher.dispose = function () {
                     this.parentNode.removeChild(this)
