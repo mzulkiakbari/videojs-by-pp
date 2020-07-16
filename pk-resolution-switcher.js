@@ -44,12 +44,12 @@
             showAsLabel: function () {
                 if (this.label) {
                     var lbl = this.options_.label;
-                    var res_num = lbl.replace('p', '');
-                    res_num = parseInt(res_num);
+//                     var res_num = lbl.replace('p', '');
+//                     res_num = parseInt(res_num);
                     if (lbl) {
-                        if (lbl == "HD") this.label.innerHTML = res_num + 'p<span class="vjs-hd-icon">HD</span>';
-                        else if (lbl == "FHD") this.label.innerHTML = res_num + 'p<span class="vjs-hk-icon">FHD</span>';
-                        else if (lbl == "4K") this.label.innerHTML = res_num + 'p<span class="vjs-shk-icon">4K</span>'
+                        if (lbl == "HD") this.label.innerHTML = '<span class="vjs-hd-icon">HD</span>';
+                        else if (lbl == "FHD") this.label.innerHTML = '<span class="vjs-hk-icon">FHD</span>';
+                        else if (lbl == "4K") this.label.innerHTML = '<span class="vjs-shk-icon">4K</span>'
                     } else {
                         this.label.innerHTML = lbl
                     }
