@@ -48,8 +48,8 @@
                     res_num = parseInt(res_num);
                     if (lbl) {
                         if (lbl == "HD") this.label.innerHTML = res_num + 'p<span class="vjs-hd-icon">HD</span>';
-                        else if (lbl == "HK") this.label.innerHTML = res_num + 'p<span class="vjs-hk-icon">Hemat</span>';
-                        else if (lbl == "SHK") this.label.innerHTML = res_num + 'p<span class="vjs-shk-icon">Sekarat</span>'
+                        else if (lbl == "FHD") this.label.innerHTML = res_num + 'p<span class="vjs-hk-icon">FHD</span>';
+                        else if (lbl == "4K") this.label.innerHTML = res_num + 'p<span class="vjs-shk-icon">4K</span>'
                     } else {
                         this.label.innerHTML = lbl
                     }
