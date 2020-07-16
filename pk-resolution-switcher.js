@@ -136,7 +136,7 @@
                 groupedSrc = {};
             videojs.dom.addClass(label, 'vjs-resolution-button-label');
             videojs.dom.addClass(label, 'vjs-resolution-type');
-            settings.dynamicLabel = !0;
+            settings.dynamicLabel = 0;
             player.updateSrc = function (src) {
                 if (!src) {
                     return player.src()
