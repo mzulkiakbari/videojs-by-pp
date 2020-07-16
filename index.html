@@ -16,9 +16,7 @@ Released under the MIT license: http://jsbin.mit-license.org
     <title>OM Demo</title>
     <!-- <script src="videojs/skin/pkplayer.js"></script> -->
     <link href="video-js.css" rel="stylesheet">
-    <link href="videojs/plugin/frame/videojs-frame.css" rel="stylesheet">
     <link href="videojs-resolution-switcher.css" rel="stylesheet">
-    <link href="videojs-mobile-ui.css" rel="stylesheet">
 
 </head>
 <style>
@@ -88,8 +86,6 @@ video:focus {
                 <video id="pokoplayer" class="video-js pkplayer"></video>
                 <script src="//vjs.zencdn.net/7.7.4/video.min.js"></script>
                 <script src="pk-resolution-switcher.js"></script>
-                <script src="videojs-mobile-ui.min.js"></script>
-                <script src="videojs/plugin/frame/videojs-frame.js"></script>
 
     <script>
         videojs('pokoplayer',{
@@ -101,7 +97,7 @@ video:focus {
           "poster" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
 	   plugins: {
         	videoJsResolutionSwitcher: {
-          	default: 'HD',
+          	default: 'auto',
           	dynamicLabel: true
         }
       }
@@ -128,7 +124,6 @@ video:focus {
       	}
 	])
 	});
-	videojs('pokoplayer').mobileUi();
     </script>
 
 </body>
