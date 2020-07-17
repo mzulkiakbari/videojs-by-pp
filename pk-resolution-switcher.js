@@ -1,3 +1,8 @@
+  /*! videojs-resolution-switcher for VideoJS Version 7+ - 2020-7-17
+ * Copyright (c) 2016 Kasper Moskwiak
+ * Modified by Poko Chan - https://facebook.com/pokonimeii
+ * Licensed under the Apache-2.0 license. */
+
 (function () {
     'use strict';
     var videojs = null;
