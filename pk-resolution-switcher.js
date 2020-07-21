@@ -60,40 +60,40 @@
                     }
                 }
             },
-            onClick: function (customSourcePicker) {
-                this.onClickListener(this);
-                var currentTime = this.player_.currentTime();
-                var isPaused = this.player_.paused();
-                this.showAsLabel();
-                this.addClass('vjs-selected');
-                if (!isPaused) {
-                    this.player_.bigPlayButton.hide()
-                }
-                if (typeof customSourcePicker !== 'function' && typeof this.options_.customSourcePicker === 'function') {
-                    customSourcePicker = this.options_.customSourcePicker
-                }
-                var handleSeekEvent = 'loadeddata';
-                if (this.player_.techName_ !== 'Youtube' && this.player_.preload() === 'none' && this.player_.techName_ !== 'Flash') {
-                    handleSeekEvent = 'timeupdate'
-                }
-                player.setSourcesSanitized(this.src, this.options_.label, customSourcePicker || settings.customSourcePicker ).one(handleSeekEvent, function () {
-                    if (this.player_.techName_ == "Flash") {
-                        currentTime = 0
-                    } else {
-                        this.player_.currentTime(currentTime);
-                        this.player_.play().handleTechSeeked_()
-                    }
-                    this.player_.handleTechSeeked_();
-                    if (!isPaused) {
-                        this.player_.play().handleTechSeeked_()
-                    } else {
-                        if (this.player_.techName_ == "Flash") {
-                            this.player_.play()
-                        }
-                    }
-                    this.player_.trigger('resolutionchange')
-                })
-            }
+            player.currentResolution = function(label, customSourcePicker){
+        if(label == null) { return this.currentResolutionState; }
+
+        // Lookup sources for label
+        if(!this.groupedSrc || !this.groupedSrc.label || !this.groupedSrc.label[label]){
+          return;
+        }
+        var sources = this.groupedSrc.label[label];
+        // Remember player state
+        var currentTime = player.currentTime();
+        var isPaused = player.paused();
+
+        // Hide bigPlayButton
+        if(!isPaused && this.player_.options_.bigPlayButton){
+          this.player_.bigPlayButton.hide();
+        }
+
+        // Change player source and wait for loadeddata event, then play video
+        // loadedmetadata doesn't work right now for flash.
+        // Probably because of https://github.com/videojs/video-js-swf/issues/124
+        // If player preload is 'none' and then loadeddata not fired. So, we need timeupdate event for seek handle (timeupdate doesn't work properly with flash)
+        var handleSeekEvent = 'loadeddata';
+        if(this.player_.techName_ !== 'Youtube' && this.player_.preload() === 'none' && this.player_.techName_ !== 'Flash') {
+          handleSeekEvent = 'timeupdate';
+        }
+        player
+          .setSourcesSanitized(sources, label, customSourcePicker || settings.customSourcePicker)
+          .one(handleSeekEvent, function() {
+            player.currentTime(currentTime);
+            
+            player.trigger('resolutionchange');
+          });
+        return player;
+      };
         });
         var MenuButton = videojs.getComponent('MenuButton');
         var ResolutionMenuButton = videojs.extend(MenuButton, {
