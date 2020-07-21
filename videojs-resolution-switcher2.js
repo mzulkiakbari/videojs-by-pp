@@ -32,8 +32,6 @@ if(typeof window.videojs === 'undefined' && typeof require === 'function') {
       // Sets this.player_, this.options_ and initializes the component
       MenuItem.call(this, player, options);
       this.src = options.src;
-      this.on('click', this.onClick);
-      this.on('touchstart', this.onClick);
       if (options.initialySelected) {
         this.showAsLabel();
         this.selected(!0);
