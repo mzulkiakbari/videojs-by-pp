@@ -76,7 +76,7 @@
                 if (this.player_.techName_ !== 'Youtube' && this.player_.preload() === 'none' && this.player_.techName_ !== 'Flash') {
                     handleSeekEvent = 'timeupdate'
                 }
-                this.player_.setSourcesSanitized(this.src, this.options_.label, customSourcePicker || settings.customSourcePicker ).one(handleSeekEvent, function () {
+                player.setSourcesSanitized(this.src, this.options_.label, customSourcePicker || settings.customSourcePicker ).one(handleSeekEvent, function () {
                     if (this.player_.techName_ == "Flash") {
                         currentTime = 0
                     } else {
