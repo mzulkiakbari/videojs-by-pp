@@ -25,14 +25,37 @@ if(typeof window.videojs === 'undefined' && typeof require === 'function') {
    */
   var MenuItem = videojs.getComponent('MenuItem');
   var ResolutionMenuItem = videojs.extend(MenuItem, {
-    constructor: function(player, options){
+    constructor: function(player, options, onClickListener, label){
       options.selectable = true;
+      this.onClickListener = onClickListener;
+      this.label = label;
       // Sets this.player_, this.options_ and initializes the component
       MenuItem.call(this, player, options);
       this.src = options.src;
+      this.on('click', this.onClick);
+      this.on('touchstart', this.onClick);
+      if (options.initialySelected) {
+        this.showAsLabel();
+        this.selected(!0);
+        this.addClass('vjs-selected')
+      }
 
       player.on('resolutionchange', videojs.bind(this, this.update));
-    }
+    },
+    showAsLabel: function () {
+      if (this.label) {
+        var lbl = this.options_.label;
+        //var res_num = lbl.replace('p', '');
+       // res_num = parseInt(res_num);
+        if (lbl) {
+          if (lbl == "HD") this.label.innerHTML = '<span class="vjs-hd-icon">HD</span>';
+          else if (lbl == "FHD") this.label.innerHTML = '<span class="vjs-hk-icon">FHD</span>';
+          else if (lbl == "4K") this.label.innerHTML = '<span class="vjs-shk-icon">4K</span>'
+        } else {
+            this.label.innerHTML = lbl
+        }
+      }
+   },
   } );
   ResolutionMenuItem.prototype.handleClick = function(event){
     MenuItem.prototype.handleClick.call(this,event);
